@@ -16,9 +16,10 @@ use App\Models\Employer;
 
     protected $fillable =['title','salary','nationality'];
 
-    public function employer()
-    {
-       return $this->belongsTo(Employeer::class);
-    }
+   
+    public function employeer()
+{
+    return $this->belongsTo(Employeer::class);
+}
 
 }
