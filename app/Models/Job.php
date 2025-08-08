@@ -14,7 +14,7 @@ use App\Models\Employer;
 
     protected $table="Job_Listings";
 
-    protected $fillable =['title','salary','nationality'];
+    protected $fillable =['title','salary','nationality','employeer_id'];
 
    
     public function employeer()
