@@ -2,6 +2,7 @@
     <x-slot:heading>
         Jobs Page
     </x-slot:heading>
+    <x-button href="/jobs/create">Create Job</x-button>
 
   <div class="space-y-4">
     @foreach ($Jobs as $job)
