@@ -1,10 +1,18 @@
 <?php
 
+use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\JobsController;
 use Illuminate\Support\Facades\Route;
 // home Page
 Route::view('/','home');
 Route::view('/contact','contact');
+Route::get('/register',[RegisterUserController::class,'create']);
+Route::post('/register',[RegisterUserController::class,'store']);
+Route::get('/session',[SessionController::class,'create']);
+Route::Post('/session',[SessionController::class,'store']);
+Route::Post('/session',[SessionController::class,'destroy']);
+
 /*
 Route::controller(JobsController::class)->group(function(){
 
