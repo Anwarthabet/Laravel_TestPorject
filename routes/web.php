@@ -11,7 +11,8 @@ Route::get('/register',[RegisterUserController::class,'create']);
 Route::post('/register',[RegisterUserController::class,'store']);
 Route::get('/session',[SessionController::class,'create']);
 Route::Post('/session',[SessionController::class,'store']);
-Route::Post('/session',[SessionController::class,'destroy']);
+ Route::delete('/session',[SessionController::class,'destroy']); 
+
 
 /*
 Route::controller(JobsController::class)->group(function(){

@@ -1,25 +1,32 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
 
- 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
-     public function create()
+    public function create()
     {
         return view('/Auth/login');
     }
-      public function store()
+    public function store()
     {
-       $attributes = request()->validate([
+        $attributes = request()->validate([
             'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
 
-        if (Auth::attempt($attributes)) {
-            return redirect('/')->with('success', 'Logged in successfully!');
+        if (!Auth::attempt($attributes)) {
+          throw ValidationException::withMessages([
+
+            'email' => 'Invalid eamil address',
+            'password' => 'Invalid password',
+          ]);
+            
+        } else {
+            return redirect('/jobs')->with('success', 'Logged in successfully!');
         }
         request()->session()->regenerate();
 
@@ -27,8 +34,7 @@ class SessionController extends Controller
     }
     public function destroy()
     {
-        // Logic to handle logout
-Auth::logout();
+        Auth::logout();
         return redirect('/')->with('success', 'Logged out successfully!');
     }
 }

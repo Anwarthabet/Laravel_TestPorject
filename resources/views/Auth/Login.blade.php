@@ -21,7 +21,7 @@
     <div>
       <label for="email" class="block text-sm font-semibold text-gray-700">Email</label>
       <div class="mt-1">
-        <input id="email" type="email" name="email" placeholder="example@mail.com"
+        <input id="email" type="email" name="email" placeholder="example@mail.com" :value="{{ old('email') }}"
           class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 pl-3 pr-10 py-2" required />
       </div>
     </div>
