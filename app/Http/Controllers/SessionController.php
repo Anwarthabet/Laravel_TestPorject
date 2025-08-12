@@ -13,7 +13,17 @@ class SessionController extends Controller
     }
       public function store()
     {
-       dd('Login Action');
+       $attributes = request()->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+
+        if (Auth::attempt($attributes)) {
+            return redirect('/')->with('success', 'Logged in successfully!');
+        }
+        request()->session()->regenerate();
+
+        return back()->withErrors(['email' => 'Invalid credentials'])->onlyInput('email');
     }
     public function destroy()
     {
