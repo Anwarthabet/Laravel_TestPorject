@@ -25,7 +25,6 @@
           class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 pl-3 pr-10 py-2" required />
       </div>
     </div>
-
     {{-- Password --}}
     <div>
       <label for="password" class="block text-sm font-semibold text-gray-700">Password</label>
@@ -34,13 +33,12 @@
           class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 pl-3 pr-10 py-2"required />
       </div>
     </div>
-
     {{-- Actions --}}
     <div class="flex justify-between items-center pt-4">
       <a href="/" class="text-gray-600 hover:text-gray-900 text-sm">Cancel</a>
       <button type="submit"
         class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-2 rounded-lg shadow transition">
-        login
+        log in
       </button>
     </div>
   </form>
